@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# Primary domain
+Sitemap: https://10xsales.app/sitemap.xml
+
+# Allow crawling of all content
+Allow: /dashboard
+Allow: /sales
+Allow: /goals
+Allow: /customers
+Allow: /referrals
+Allow: /settings
+Allow: /features
+Allow: /pricing
+Allow: /download
+Allow: /trial
+
+# SEO-optimized paths
+Allow: /best-mobile-crm-car-sales-2024
+Allow: /portable-dealership-crm
+Allow: /car-sales-professional-tools
+Allow: /automotive-sales-tracking
+Allow: /customer-database-app
+Allow: /independent-crm-software
+Allow: /take-customers-switching-dealerships
+Allow: /sales-goals-tracking
+Allow: /referral-tracking-software
+Allow: /commission-tracker
+
+# Prevent crawling of private data
+Disallow: /api/
+Disallow: /admin/
+Disallow: /user/
+Disallow: /private/

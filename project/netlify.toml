@@ -1,0 +1,54 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
+
+# SEO-optimized redirects
+[[redirects]]
+  from = "/best-mobile-crm-car-sales-2024"
+  to = "/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/portable-dealership-crm"
+  to = "/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/take-customers-switching-dealerships"
+  to = "/"
+  status = 200
+  force = true
+
+# Domain redirects
+[[redirects]]
+  from = "https://autosalespro.com/*"
+  to = "https://10xsales.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automotivesalescrm.com/*"
+  to = "https://10xsales.app/:splat"
+  status = 301
+  force = true
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: images.unsplash.com; connect-src 'self' api.unsplash.com;"
+
+[build.environment]
+  NODE_VERSION = "18"

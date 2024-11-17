@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: 247 246 244;
+    --foreground: 84 64 56;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  :root[class~="dark"] {
+    color-scheme: dark;
+    --background: 69 59 51;
+    --foreground: 232 228 221;
+  }
+
+  /* Mobile viewport height fixes */
+  html {
+    height: 100%;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    height: stretch;
+  }
+
+  body {
+    @apply bg-earth-50 dark:bg-earth-900 text-earth-900 dark:text-earth-100;
+    min-height: 100%;
+    min-height: -webkit-fill-available;
+    min-height: -moz-available;
+    min-height: stretch;
+    overscroll-behavior-y: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Mobile input optimizations */
+  input,
+  textarea,
+  select {
+    @apply appearance-none;
+    font-size: 16px !important; /* Prevent iOS zoom */
+    border-radius: 0;
+  }
+
+  /* Enhanced input shadows for light theme */
+  .light input,
+  .light textarea,
+  .light select {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  /* Mobile button optimizations */
+  button {
+    @apply touch-manipulation;
+    min-height: 44px; /* iOS minimum tap target size */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Mobile link optimizations */
+  a {
+    @apply touch-manipulation;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Mobile scroll optimizations */
+  .ios-scroll-fix {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  /* Safe area utilities */
+  .pt-safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .pb-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Main content container */
+  .main-content {
+    @apply flex-1 relative overflow-y-auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    /* Fix for iOS momentum scrolling */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Mobile-specific utilities */
+@layer utilities {
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  .min-h-screen-ios {
+    min-height: -webkit-fill-available;
+  }
+
+  .overscroll-contain {
+    overscroll-behavior: contain;
+  }
+}
